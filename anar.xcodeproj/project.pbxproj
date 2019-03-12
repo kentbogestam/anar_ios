@@ -34,13 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		377B6E13223516D7000CDE65 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		377B6E14223516D7000CDE65 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		377B6E1922352B79000CDE65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		EC91FFCB21CCF119003EB699 /* anar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC91FFCE21CCF119003EB699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC91FFD021CCF119003EB699 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC91FFD321CCF119003EB699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC91FFD521CCF11B003EB699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC91FFD821CCF11B003EB699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC91FFDA21CCF11B003EB699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC91FFDF21CCF11B003EB699 /* anarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = anarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC91FFE321CCF11B003EB699 /* anarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anarTests.swift; sourceTree = "<group>"; };
 		EC91FFE521CCF11B003EB699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 				EC91FFD221CCF119003EB699 /* Main.storyboard */,
 				EC91FFD521CCF11B003EB699 /* Assets.xcassets */,
 				EC91FFD721CCF11B003EB699 /* LaunchScreen.storyboard */,
-				EC91FFDA21CCF11B003EB699 /* Info.plist */,
+				377B6E1622351712000CDE65 /* Info.plist */,
 			);
 			path = anar;
 			sourceTree = "<group>";
@@ -293,10 +295,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		377B6E1622351712000CDE65 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				377B6E1922352B79000CDE65 /* Base */,
+			);
+			name = Info.plist;
+			path = anar;
+			sourceTree = SOURCE_ROOT;
+		};
 		EC91FFD221CCF119003EB699 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EC91FFD321CCF119003EB699 /* Base */,
+				377B6E13223516D7000CDE65 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -305,6 +317,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EC91FFD821CCF11B003EB699 /* Base */,
+				377B6E14223516D7000CDE65 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -377,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -432,16 +447,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84RP3U94G7;
 				INFOPLIST_FILE = anar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dastjar.anar.anar;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cumbari.anar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,16 +469,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84RP3U94G7;
 				INFOPLIST_FILE = anar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dastjar.anar.anar;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cumbari.anar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
