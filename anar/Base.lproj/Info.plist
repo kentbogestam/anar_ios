@@ -18,6 +18,8 @@
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>På så sätt kan vi visa restauranger nära dig och styra dig på kartan till din valda restaurang. Alternativt kan du manuellt ange din position i &quot;Plats&quot; under &quot;ooo&quot;.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
