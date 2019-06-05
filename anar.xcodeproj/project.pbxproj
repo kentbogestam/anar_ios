@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDAAE22F225F6BD7009EE0EF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BDAAE22E225F6BD7009EE0EF /* index.html */; };
 		EC91FFCF21CCF119003EB699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91FFCE21CCF119003EB699 /* AppDelegate.swift */; };
 		EC91FFD121CCF119003EB699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91FFD021CCF119003EB699 /* ViewController.swift */; };
 		EC91FFD421CCF119003EB699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC91FFD221CCF119003EB699 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		377B6E13223516D7000CDE65 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		377B6E14223516D7000CDE65 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		377B6E1922352B79000CDE65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		BDAAE22E225F6BD7009EE0EF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		EC91FFCB21CCF119003EB699 /* anar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC91FFCE21CCF119003EB699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC91FFD021CCF119003EB699 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				EC91FFD021CCF119003EB699 /* ViewController.swift */,
 				EC91FFD221CCF119003EB699 /* Main.storyboard */,
 				EC91FFD521CCF11B003EB699 /* Assets.xcassets */,
+				BDAAE22E225F6BD7009EE0EF /* index.html */,
 				EC91FFD721CCF11B003EB699 /* LaunchScreen.storyboard */,
 				377B6E1622351712000CDE65 /* Info.plist */,
 			);
@@ -213,6 +216,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = EC91FFC221CCF119003EB699;
 			productRefGroup = EC91FFCC21CCF119003EB699 /* Products */;
@@ -232,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC91FFD921CCF11B003EB699 /* LaunchScreen.storyboard in Resources */,
+				BDAAE22F225F6BD7009EE0EF /* index.html in Resources */,
 				EC91FFD621CCF11B003EB699 /* Assets.xcassets in Resources */,
 				EC91FFD421CCF119003EB699 /* Main.storyboard in Resources */,
 			);
@@ -450,16 +455,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84RP3U94G7;
+				DEVELOPMENT_TEAM = 954V2T7KP7;
 				INFOPLIST_FILE = anar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cumbari.anar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dastjar.anar-find-eat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -472,16 +478,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84RP3U94G7;
+				DEVELOPMENT_TEAM = 954V2T7KP7;
 				INFOPLIST_FILE = anar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cumbari.anar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dastjar.anar-find-eat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

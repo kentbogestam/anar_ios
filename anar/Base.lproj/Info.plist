@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>På så sätt kan vi visa restauranger nära dig och styra dig på kartan till din valda restaurang. Alternativt kan du manuellt ange din position i &quot;Plats&quot; under &quot;ooo&quot;.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,8 +25,8 @@
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>På så sätt kan vi visa restauranger nära dig och styra dig på kartan till din valda restaurang. Alternativt kan du manuellt ange din position i &quot;Plats&quot; under &quot;ooo&quot;.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>På så sätt kan vi visa restauranger nära dig och styra dig på kartan till din valda restaurang. Alternativt kan du manuellt ange din position i &quot;Plats&quot; under &quot;ooo&quot;.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

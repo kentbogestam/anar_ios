@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "anar-logo_app_store_icon.png",
+      "filename" : "Granatäpple.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Granatäpple-1.png",
       "scale" : "2x"
     },
     {
