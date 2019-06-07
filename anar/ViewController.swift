@@ -111,7 +111,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         }
         
         let distanceInMeters = positionA?.distance(from: lastLocation)
-        print("distanceInMeters: \(distanceInMeters)")
+        print("distanceInMeters: \(String(describing: distanceInMeters))")
         
         guard let distance = distanceInMeters else {
             return
