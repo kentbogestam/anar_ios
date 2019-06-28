@@ -21,7 +21,6 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         super.viewDidLoad()
         
         let url = URL(string: "https://anar-dev.dastjar.com")!
-//        let url = URL(string: "http://localhost/demo/index.html")!
         webView.load(URLRequest(url: url))
     }
     
