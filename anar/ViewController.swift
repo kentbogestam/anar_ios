@@ -61,7 +61,6 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
             case .notDetermined:
                 locationManager.requestWhenInUseAuthorization()
                 return
-                
             // 2
             case .denied, .restricted:
                 // let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
@@ -71,11 +70,15 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
                 dict["locationPermission"] = "0"
                 sendCurrentLocation(dict: self.dict as [NSString : NSString])
                 return
+            // 3
             case .authorizedAlways, .authorizedWhenInUse:
-                locationManager.delegate = self
-                locationManager.startUpdatingLocation()
-                // sendCurrentLocation(dict: self.dict as [NSString : NSString])
+                sendCurrentLocation(dict: self.dict as [NSString : NSString])
+                break
             }
+
+            // 4
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
         }
         // now use the name and token as you see fit!
     }
