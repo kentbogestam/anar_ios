@@ -14,7 +14,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     var webView: WKWebView!
     let userContentController = WKUserContentController()
     let locationManager = CLLocationManager()
-    var dict = ["lat": "0.00", "long": "0.00", "action": ""]
+    var dict = ["lat": "0.00", "long": "0.00", "action": "", "locationPermission" : "1"]
     var positionA : CLLocation?
     
     override func viewDidLoad() {
@@ -37,21 +37,18 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        debugPrint(webView.url!)
-//        webView.evaluateJavaScript("alert('Hello from')", completionHandler: nil)
-        
-        
+        debugPrint("didStartProvisionalNavigation\(webView.url!)")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        debugPrint("didFinish:\(webView.url!)")
+        debugPrint("didFinish: \(webView.url!)")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        debugPrint("didFail navigation")
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-//        let dict = message.body as! [String:AnyObject]
-//        let username    = dict["username"] as! String
-//        let secretToken = dict["secretToken"] as! String
-        
         if message.name == "geoAddress" {
             let strMsg = message.body as! String
             dict["action"] = strMsg
@@ -67,24 +64,19 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
                 
             // 2
             case .denied, .restricted:
-                let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                
-                present(alert, animated: true, completion: nil)
+                // let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+                // let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                // alert.addAction(okAction)
+                // present(alert, animated: true, completion: nil)
+                dict["locationPermission"] = "0"
+                sendCurrentLocation(dict: self.dict as [NSString : NSString])
                 return
             case .authorizedAlways, .authorizedWhenInUse:
-                sendCurrentLocation(dict: self.dict as [NSString : NSString])
-                break
-                
+                locationManager.delegate = self
+                locationManager.startUpdatingLocation()
+                // sendCurrentLocation(dict: self.dict as [NSString : NSString])
             }
-            
-            // 4
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-            
         }
-        
         // now use the name and token as you see fit!
     }
     
@@ -102,7 +94,8 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         debugPrint("didUpdateLocations")
         dict = [
             "lat": String(lastLocation.coordinate.latitude),
-            "long": String(lastLocation.coordinate.longitude)
+            "long": String(lastLocation.coordinate.longitude),
+            "locationPermission" : "1"
         ]
         
         if (positionA == nil) {
@@ -110,20 +103,20 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         }
         
         let distanceInMeters = positionA?.distance(from: lastLocation)
-        print("distanceInMeters: \(String(describing: distanceInMeters))")
+        debugPrint("distanceInMeters: \(String(describing: distanceInMeters))")
         
         guard let distance = distanceInMeters else {
             return
         }
         
         if distance > 20 {
-            print("exceed 20 meter")
+            debugPrint("exceed 20 meter")
             positionA = lastLocation
             dict["action"] = "getLocation"
             sendCurrentLocation(dict: self.dict as [NSString : NSString])
         }
         else {
-            print("under 20 meter")
+            debugPrint("under 20 meter")
         }
     }
     
