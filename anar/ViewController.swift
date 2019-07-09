@@ -20,7 +20,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://anar-dev.dastjar.com")!
+        let url = URL(string: "https://anar.dastjar.com")!
         webView.load(URLRequest(url: url))
     }
     
