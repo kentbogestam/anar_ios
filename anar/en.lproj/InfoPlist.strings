@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Anar Find&Eat
+
+  Created by Ashish Pal on 11/07/19.
+  Copyright © 2019 Dastjar Ab. All rights reserved.
+*/
+
+
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "This will enable us to show restaurants close to you and guide you on the map to your chosen restaurant. Alternatively you may manually enter your position in \"Location\" under \"ooo\".";
+"NSLocationWhenInUseUsageDescription" = "This will enable us to show restaurants close to you and guide you on the map to your chosen restaurant. Alternatively you may manually enter your position in \"Location\" under \"ooo\".";
