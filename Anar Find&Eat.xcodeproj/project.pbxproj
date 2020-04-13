@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD22A1A822D6FC8100094D7A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD22A1AA22D6FC8100094D7A /* InfoPlist.strings */; };
 		BDAAE22F225F6BD7009EE0EF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BDAAE22E225F6BD7009EE0EF /* index.html */; };
+		BDF14E5924447AE0009E6FC8 /* splash_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BDF14E5824447AE0009E6FC8 /* splash_image.png */; };
 		EC91FFCF21CCF119003EB699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91FFCE21CCF119003EB699 /* AppDelegate.swift */; };
 		EC91FFD121CCF119003EB699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91FFD021CCF119003EB699 /* ViewController.swift */; };
 		EC91FFD421CCF119003EB699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC91FFD221CCF119003EB699 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		BD22A1A922D6FC8100094D7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD22A1AB22D6FC8700094D7A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BDAAE22E225F6BD7009EE0EF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BDF14E5824447AE0009E6FC8 /* splash_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_image.png; sourceTree = "<group>"; };
 		EC91FFCB21CCF119003EB699 /* Anar Find&Eat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anar Find&Eat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC91FFCE21CCF119003EB699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC91FFD021CCF119003EB699 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				EC91FFCE21CCF119003EB699 /* AppDelegate.swift */,
 				EC91FFD021CCF119003EB699 /* ViewController.swift */,
+				BDF14E5824447AE0009E6FC8 /* splash_image.png */,
 				EC91FFD221CCF119003EB699 /* Main.storyboard */,
 				EC91FFD521CCF11B003EB699 /* Assets.xcassets */,
 				BDAAE22E225F6BD7009EE0EF /* index.html */,
@@ -243,6 +246,7 @@
 				BDAAE22F225F6BD7009EE0EF /* index.html in Resources */,
 				EC91FFD621CCF11B003EB699 /* Assets.xcassets in Resources */,
 				EC91FFD421CCF119003EB699 /* Main.storyboard in Resources */,
+				BDF14E5924447AE0009E6FC8 /* splash_image.png in Resources */,
 				BD22A1A822D6FC8100094D7A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,7 +472,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
@@ -493,7 +496,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
