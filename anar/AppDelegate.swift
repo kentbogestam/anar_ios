@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        App42API.initialize(withAPIKey: Constant.APP42_APP_KEY, andSecretKey: Constant.APP42_SECRET_KEY)
+        
+        registerForPushNotifications()
+        
         return true
     }
 
@@ -41,6 +46,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func registerForPushNotifications() {
+      UNUserNotificationCenter.current() // 1
+        .requestAuthorization(options: [.alert, .sound, .badge]) {
+            [weak self] granted, error in
+              
+            print("Permission granted: \(granted)")
+            guard granted else { return }
+            self?.getNotificationSettings()
+        }
+    }
 
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+        
+        registerDeviceTokenInApp42Server(token: token)
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    func registerDeviceTokenInApp42Server(token: String) {
+        let userName = "anar_ios"
+        
+        let pushNotificationService = App42API.buildPushService() as? PushNotificationService
+        
+        pushNotificationService?.registerDeviceToken(token, withUser:userName, completionBlock: { (success, response, exception) -> Void in
+            if(success) {
+                let pushNotification = response as! PushNotification
+                print(pushNotification.userName, pushNotification.deviceToken)
+                
+            } else {
+                print(exception?.reason! ?? "", exception?.appErrorCode ?? "", exception?.httpErrorCode ?? "", exception?.userInfo! ?? "")
+            }
+            
+        })
+    }
 }
 
