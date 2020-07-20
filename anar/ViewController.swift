@@ -24,8 +24,6 @@ class ViewController: UIViewController, WKUIDelegate {
         case responseGeoAddressFromIosNative
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -46,7 +44,8 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     func sendCurrentLocation(data: DataModel) {
-        let dict = data.nsDictionary
+        let dict = data.dictionaryRepresentation
+        
         if !data.action.isEmpty {
             let jsonData = try! JSONSerialization.data(withJSONObject: dict, options: [])
             let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)!
@@ -145,7 +144,6 @@ extension ViewController : WKScriptMessageHandler {
                 sendCurrentLocation(data: self.dataModel)
                 break
             }
-            
             
             locationManager.startUpdatingLocation()
         }

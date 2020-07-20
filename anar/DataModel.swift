@@ -12,16 +12,12 @@ import Foundation
 struct DataModel {
     var lat = "0.00", long = "0.00", action = "", locationPermission = "1"
     
-    private var dictionary: [String: Any] {
+    var dictionaryRepresentation: [String: Any] {
         return [
             "lat": lat,
             "long": long,
             "action": action,
             "locationPermission": locationPermission
         ]
-    }
-    
-    var nsDictionary: NSDictionary {
-        return dictionary as NSDictionary
     }
 }
