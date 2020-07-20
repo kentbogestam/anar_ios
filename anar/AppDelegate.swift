@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        App42API.initialize(withAPIKey: Constant.APP42_APP_KEY, andSecretKey: Constant.APP42_SECRET_KEY)
         
-        registerForPushNotifications()
+//        App42API.initialize(withAPIKey: Constant.APP42_APP_KEY, andSecretKey: Constant.APP42_SECRET_KEY)
+//        
+//        registerForPushNotifications()
         
         return true
     }
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -51,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         .requestAuthorization(options: [.alert, .sound, .badge]) {
             [weak self] granted, error in
               
-            print("Permission granted: \(granted)")
+            debugPrint("Permission granted: \(granted)")
             guard granted else { return }
             self?.getNotificationSettings()
         }
@@ -63,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
-        print("Device Token: \(token)")
+        debugPrint("Device Token: \(token)")
         
         registerDeviceTokenInApp42Server(token: token)
     }
@@ -71,12 +73,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
+        debugPrint("Failed to register: \(error)")
     }
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
+            debugPrint("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
@@ -85,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerDeviceTokenInApp42Server(token: String) {
-        let userName = "anar_ios"
+        let userName = "iOS_User"
         
         let pushNotificationService = App42API.buildPushService() as? PushNotificationService
         
@@ -93,9 +95,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if(success) {
                 let pushNotification = response as! PushNotification
                 print(pushNotification.userName, pushNotification.deviceToken)
+                let alert = UIAlertController.init(title: "Token", message: "\(token)", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Copy", style: .cancel) { (UIAlertAction) in
+                    let pasteboard = UIPasteboard.general
+                    pasteboard.string = "\(token)"
+                }
+                alert.addAction(action)
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
                 
             } else {
                 print(exception?.reason! ?? "", exception?.appErrorCode ?? "", exception?.httpErrorCode ?? "", exception?.userInfo! ?? "")
+                let msg = "\(exception?.reason! ?? "")"
+                let alert = UIAlertController.init(title: "Error", message: "\(msg)", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .cancel)
+                alert.addAction(action)
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+                
             }
             
         })
